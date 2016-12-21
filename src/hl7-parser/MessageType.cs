@@ -1,14 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace hl7_parser
 {
-    
+
     public class MessageType
     {
+        public MessageType(string value, char[] encodingCharacters)
+        {
+            string[] values = value.Split(encodingCharacters);
+            AddValue((x) => MessageCode = (MessageCode)Enum.Parse(typeof(MessageCode), x, true), values, 0);
+            AddValue((x) => TriggerEvent = (TriggerEvent)Enum.Parse(typeof(TriggerEvent), x, true), values, 1);
+            AddValue((x) => MessageStructure = x, values, 2);
+        }
+
+        private void AddValue(Action<string> addValue, string[] values, int index)
+        {
+            if (values.Length > index)
+                addValue(values[index]);
+        }
+
         public MessageCode MessageCode { get; set; }
         public TriggerEvent TriggerEvent { get; set; }
         public string MessageStructure { get; set; }

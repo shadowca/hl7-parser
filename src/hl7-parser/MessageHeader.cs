@@ -9,9 +9,9 @@ namespace hl7_parser
 {
     public class MessageHeader
     {
-        
+
         public string FieldSeparator { get; set; }
-        public string EncodingCharacters { get; set; }
+        public char[] EncodingCharacters { get; set; }
         public Option<HierarchicDesignator> SendingApplication { get; set; }
         public Option<HierarchicDesignator> SendingFacility { get; set; }
         public Option<HierarchicDesignator> ReceivingApplication { get; set; }
@@ -19,7 +19,7 @@ namespace hl7_parser
         public Option<DateTimeOffset> DateTimeOfMessage { get; set; }
         public Option<string> Security { get; set; }
         public MessageType MessageType { get; set; }
-        public string MessageControlId { get; set; }
+        public Option<string> MessageControlId { get; set; }
         public ProcessingType ProcessingId { get; set; }
         public string VersionId { get; set; }
         public Option<uint> SequenceNumber { get; set; }
@@ -29,16 +29,5 @@ namespace hl7_parser
         public Option<string> CountryCode { get; set; }
         public Option<string> CharacterSet { get; set; }
         public Option<string> PrincipalLanguageOfMessage { get; set; }
-
-
-        public static MessageHeader From(string line)
-        {
-            
-          if (string.IsNullOrEmpty(line))
-                throw new ArgumentNullException();
-
-            return null;
-
-        }
     }
 }

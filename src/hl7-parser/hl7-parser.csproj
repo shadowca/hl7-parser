@@ -53,6 +53,7 @@
     <Compile Include="ApplicationAcknowledgementType.cs" />
     <Compile Include="MessageHeader.cs" />
     <Compile Include="MessageType.cs" />
+    <Compile Include="Parser.cs" />
     <Compile Include="ProcessingId.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HierarchicDesignator.cs" />
